@@ -46,7 +46,8 @@ const EditProfile = () => {
                 headers:{
                     'Content-Type':'multipart/form-data'
                 },
-                withCredentials:true
+                withCredentials:true,
+                credentials: 'include'
             });
             if(res.data.success){
                 const updatedUserData = {
