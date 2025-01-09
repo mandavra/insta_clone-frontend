@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import MainLayout from './components/MainLayout'
 import Profile from './components/Profile'
+import Profile1 from './components/Profile1'
 import Signup from './components/Signup'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { io } from "socket.io-client";
@@ -27,6 +28,10 @@ const browserRouter = createBrowserRouter([
       {
         path: '/profile/:id',
         element: <ProtectedRoutes> <Profile /></ProtectedRoutes>
+      },
+      {
+        path: '/profile1/:_id',
+        element: <ProtectedRoutes> <Profile1 /></ProtectedRoutes>
       },
       {
         path: '/account/edit',
@@ -55,7 +60,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io('https://insta-clone-1-fqbz.onrender.com/', {
+      const socketio = io('http://localhost:8000/', {
         query: {
           userId: user?._id
         },

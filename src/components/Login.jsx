@@ -26,7 +26,7 @@ const Login = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post('https://insta-clone-1-fqbz.onrender.com/api/v1/user/login', input, {
+            const res = await axios.post('http://localhost:8000/api/v1/user/login', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -36,6 +36,7 @@ const Login = () => {
                 dispatch(setAuthUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
+                localStorage.setItem('token', res.data.token);
                 setInput({
                     email: "",
                     password: ""
