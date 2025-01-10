@@ -9,7 +9,7 @@ const useGetAllPost = () => {
     useEffect(() => {
         const fetchAllPost = async () => {
             try {
-                const res = await axios.get('https://insta-clone-1-fqbz.onrender.comapi/v1/post/all', { withCredentials: true });
+                const res = await axios.get('http://localhost:8000api/v1/post/all', { withCredentials: true });
                 if (res.data.success) { 
                     console.log(res.data.posts);
                     dispatch(setPosts(res.data.posts));
