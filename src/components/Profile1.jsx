@@ -31,7 +31,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem('token');
         console.log("🚀 ~ FollowUsers ~ token:", token)
-        const res = await axios.post(`https://insta-clone-1-fqbz.onrender.comapi/v1/user/follow/${id}`, {}, {
+        const res = await axios.post(`http://localhost:8000/api/v1/user/follow/${id}`, {}, {
           withCredentials: true,
           headers: {
             'Authorization': `Bearer ${token}`
@@ -44,17 +44,10 @@ const Profile = () => {
         console.log(error);
       }
     }
-
-
-
-
-
-
-    
     const UnFollowUsers = async (id) => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.post(`https://insta-clone-1-fqbz.onrender.comapi/v1/user/unfollow/${id}`, {}, {
+        const res = await axios.post(`http://localhost:8000/api/v1/user/unfollow/${id}`, {}, {
           withCredentials: true,
           headers: {
             'Authorization': `Bearer ${token}`
